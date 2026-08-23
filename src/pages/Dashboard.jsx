@@ -3,8 +3,29 @@ import GridStatus from '../components/dashboard/GridStatus';
 import PowerChart from '../components/dashboard/PowerChart';
 import EventList from '../components/dashboard/EventList';
 import { Sun, Battery, Zap, Activity } from 'lucide-react';
+import { useGrid } from '../context/GridContext';
+import Loading from '../components/common/Loading';
+import ErrorMessage from '../components/common/ErrorMessage';
 
 export default function Dashboard() {
+  const { gridSummary, nodes, batteries, loading, error, refreshData } = useGrid();
+
+  if (loading && !gridSummary) return <Loading message="Loading grid data..." />;
+  if (error && !gridSummary) return <ErrorMessage message="Backend Offline" onRetry={refreshData} />;
+
+  const activeNodes = nodes.filter(n => n.status === 'ACTIVE').length;
+  const warningNodes = nodes.filter(n => n.status === 'WARNING').length;
+  const faultNodes = nodes.filter(n => n.status === 'FAULT').length;
+
+  const chargingBats = batteries.filter(b => b.state === 'CHARGING').length;
+  const dischargingBats = batteries.filter(b => b.state === 'DISCHARGING').length;
+  const idleBats = batteries.filter(b => b.state === 'IDLE').length;
+
+  const generation = gridSummary?.generation || 0;
+  const demand = gridSummary?.demand || 0;
+  const status = gridSummary?.status || 'STABLE';
+  const balance = gridSummary?.balance || (generation - demand);
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -15,27 +36,27 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
         <StatCard 
           title="Solar Nodes" 
-          mainValue="156" 
+          mainValue={nodes.length} 
           icon={Sun}
           items={[
-            { label: 'Active', value: '154', statusColor: 'emerald' },
-            { label: 'Warning', value: '2', statusColor: 'amber' },
-            { label: 'Fault', value: '0', statusColor: 'slate' },
+            { label: 'Active', value: activeNodes, statusColor: 'emerald' },
+            { label: 'Warning', value: warningNodes, statusColor: 'amber' },
+            { label: 'Fault', value: faultNodes, statusColor: 'slate' },
           ]}
         />
         <StatCard 
           title="Batteries" 
-          mainValue="42" 
+          mainValue={batteries.length} 
           icon={Battery}
           items={[
-            { label: 'Charging', value: '12', statusColor: 'blue' },
-            { label: 'Discharging', value: '0', statusColor: 'amber' },
-            { label: 'Idle', value: '30', statusColor: 'slate' },
+            { label: 'Charging', value: chargingBats, statusColor: 'blue' },
+            { label: 'Discharging', value: dischargingBats, statusColor: 'amber' },
+            { label: 'Idle', value: idleBats, statusColor: 'slate' },
           ]}
         />
         <StatCard 
           title="Generation" 
-          mainValue="420 kW" 
+          mainValue={`${generation} kW`} 
           icon={Zap}
           items={[
             { label: 'Trend', value: '+5.2%', statusColor: 'emerald' },
@@ -45,7 +66,7 @@ export default function Dashboard() {
         />
         <StatCard 
           title="Demand" 
-          mainValue="380 kW" 
+          mainValue={`${demand} kW`} 
           icon={Activity}
           items={[
             { label: 'Trend', value: '-1.4%', statusColor: 'emerald' },
@@ -58,12 +79,11 @@ export default function Dashboard() {
       {/* Main Grid Status and Layout */}
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         <div className="xl:col-span-1">
-          {/* Static STABLE data for Phase 2 UI test */}
           <GridStatus 
-            status="STABLE" 
-            generation={420} 
-            demand={380} 
-            balance={40} 
+            status={status} 
+            generation={generation} 
+            demand={demand} 
+            balance={balance} 
           />
         </div>
         <div className="xl:col-span-2">
@@ -83,4 +103,3 @@ export default function Dashboard() {
     </div>
   );
 }
-

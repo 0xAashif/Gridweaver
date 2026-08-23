@@ -1,7 +1,15 @@
 import GridMap from '../components/map/GridMap';
 import '../styles/map.css';
+import { useGrid } from '../context/GridContext';
+import Loading from '../components/common/Loading';
+import ErrorMessage from '../components/common/ErrorMessage';
 
 export default function GridMapPage() {
+  const { nodes, batteries, loading, error, refreshData } = useGrid();
+
+  if (loading && nodes.length === 0) return <Loading message="Loading grid map..." />;
+  if (error && nodes.length === 0) return <ErrorMessage message="Backend Offline" onRetry={refreshData} />;
+
   return (
     <div className="space-y-6 h-full flex flex-col">
       <div className="flex items-center justify-between">
@@ -11,7 +19,7 @@ export default function GridMapPage() {
       <div className="flex-1 flex flex-col xl:flex-row gap-6 min-h-[600px]">
         {/* Main Map Container */}
         <div className="flex-1 rounded-xl relative shadow-sm">
-          <GridMap />
+          <GridMap nodes={nodes} batteries={batteries} />
         </div>
 
         {/* Legend Sidebar */}
