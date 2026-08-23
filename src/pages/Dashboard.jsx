@@ -1,5 +1,7 @@
 import StatCard from '../components/dashboard/StatCard';
 import GridStatus from '../components/dashboard/GridStatus';
+import PowerChart from '../components/dashboard/PowerChart';
+import EventList from '../components/dashboard/EventList';
 import { Sun, Battery, Zap, Activity } from 'lucide-react';
 
 export default function Dashboard() {
@@ -53,9 +55,9 @@ export default function Dashboard() {
         />
       </div>
 
-      {/* Main Grid Status and Layout Placeholders */}
+      {/* Main Grid Status and Layout */}
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-        <div className="xl:col-span-2">
+        <div className="xl:col-span-1">
           {/* Static STABLE data for Phase 2 UI test */}
           <GridStatus 
             status="STABLE" 
@@ -64,15 +66,15 @@ export default function Dashboard() {
             balance={40} 
           />
         </div>
-        <div className="border border-slate-800 border-dashed rounded-xl p-6 h-[240px] flex items-center justify-center text-slate-500 bg-slate-900/20">
-          Power Chart Placeholder
+        <div className="xl:col-span-2">
+          <PowerChart />
         </div>
       </div>
 
-      {/* Lower Placeholders */}
+      {/* Lower Components */}
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-        <div className="border border-slate-800 border-dashed rounded-xl p-6 h-64 flex items-center justify-center text-slate-500 bg-slate-900/20 xl:col-span-2">
-          Event List Placeholder
+        <div className="xl:col-span-2">
+          <EventList />
         </div>
         <div className="border border-slate-800 border-dashed rounded-xl p-6 h-64 flex items-center justify-center text-slate-500 bg-slate-900/20">
           Simulation Control Placeholder
