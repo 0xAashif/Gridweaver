@@ -11,6 +11,7 @@ export function GridProvider({ children }) {
   const [nodes, setNodes] = useState([]);
   const [batteries, setBatteries] = useState([]);
   const [simulationStatus, setSimulationStatus] = useState(null);
+  const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [connectionStatus, setConnectionStatus] = useState('OFFLINE');
@@ -19,17 +20,19 @@ export function GridProvider({ children }) {
     setLoading(true);
     setError(null);
     try {
-      const [summaryData, nodesData, batteriesData, simData] = await Promise.all([
+      const [summaryData, nodesData, batteriesData, simData, eventsData] = await Promise.all([
         dashboardService.getGridSummary(),
         nodeService.getNodes(),
         batteryService.getBatteries(),
-        simulationService.getStatus()
+        simulationService.getStatus(),
+        dashboardService.getEvents ? dashboardService.getEvents() : Promise.resolve([])
       ]);
 
       setGridSummary(summaryData);
       setNodes(nodesData || []);
       setBatteries(batteriesData || []);
       setSimulationStatus(simData);
+      setEvents(eventsData || []);
       setConnectionStatus('LIVE');
     } catch (err) {
       console.error('Failed to fetch grid data:', err);
@@ -53,6 +56,7 @@ export function GridProvider({ children }) {
       nodes,
       batteries,
       simulationStatus,
+      events,
       loading,
       error,
       connectionStatus,

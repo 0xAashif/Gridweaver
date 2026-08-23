@@ -4,16 +4,16 @@ import SolarMarker from './SolarMarker';
 import BatteryMarker from './BatteryMarker';
 
 export default function GridMap({ nodes = [], batteries = [] }) {
-  // Center roughly based on first node or default to NYC (example coordinates)
+  // Center roughly based on first node or default to India coordinates
   const defaultCenter = nodes.length > 0 && nodes[0].latitude 
     ? [nodes[0].latitude, nodes[0].longitude] 
-    : [40.7128, -74.0060];
+    : [22.9, 78.2];
 
   return (
     <div className="w-full h-full rounded-xl overflow-hidden border border-slate-800 relative z-0" style={{ isolation: 'isolate' }}>
       <MapContainer 
-        center={defaultCenter} 
-        zoom={13} 
+        center={[22.9, 78.2]} 
+        zoom={5} 
         style={{ height: '100%', width: '100%', backgroundColor: '#0f172a' }}
         zoomControl={false}
       >

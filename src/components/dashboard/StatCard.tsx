@@ -23,13 +23,13 @@ const colorMap = {
 
 export default function StatCard({ title, mainValue, icon: Icon, items }: StatCardProps) {
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col h-full shadow-sm">
+    <div className="gw-card p-5 flex flex-col h-full shadow-sm">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">{title}</h3>
+        <h3 className="gw-label">{title}</h3>
         {Icon && <Icon className="w-5 h-5 text-slate-500" />}
       </div>
       
-      <div className="text-3xl font-bold text-slate-100 mb-5 tracking-tight">
+      <div className="gw-value mb-5 block">
         {mainValue}
       </div>
       

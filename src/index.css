@@ -1,1 +1,66 @@
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+
+body {
+  background-color: #0B0E14;
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 130, 246, 0.08), transparent);
+  background-attachment: fixed;
+  color: #f8fafc;
+}
+
+.gw-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+}
+
+.gw-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: #e2e8f0;
+}
+
+.gw-label {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: #94a3b8;
+}
+
+.gw-pill-stable {
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  color: #34d399;
+}
+
+.gw-dot-stable {
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.7);
+  background-color: #34d399;
+}
+
+.gw-pill-unstable {
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  color: #f43f5e;
+}
+
+.gw-dot-unstable {
+  box-shadow: 0 0 8px rgba(244, 63, 94, 0.7);
+  background-color: #f43f5e;
+}
+
+.gw-pill-recovering {
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  color: #fbbf24;
+}
+
+.gw-dot-recovering {
+  box-shadow: 0 0 8px rgba(251, 191, 36, 0.7);
+  background-color: #fbbf24;
+}

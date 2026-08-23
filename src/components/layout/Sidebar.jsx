@@ -12,7 +12,7 @@ const navigation = [
 
 export default function Sidebar() {
   return (
-    <div className="w-64 bg-slate-900 border-r border-slate-800 flex flex-col h-full flex-shrink-0">
+    <div className="w-64 bg-black/30 border-r border-white/[0.04] flex flex-col h-full flex-shrink-0">
       <div className="h-16 flex items-center px-6 border-b border-slate-800">
         <h1 className="text-xl font-bold text-slate-100 flex items-center gap-2">
           <Activity className="w-6 h-6 text-blue-500" />

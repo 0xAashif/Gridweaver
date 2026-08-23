@@ -13,8 +13,8 @@ const mockData = [
 
 export default function PowerChart() {
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 h-full flex flex-col">
-      <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-6">Power Generation vs Demand</h3>
+    <div className="gw-card p-5 h-full flex flex-col">
+      <h3 className="gw-label mb-6">Power Generation vs Demand</h3>
       <div className="flex-1 min-h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={mockData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>

@@ -23,9 +23,9 @@ export default function GridMapPage() {
         </div>
 
         {/* Legend Sidebar */}
-        <div className="w-full xl:w-64 bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col gap-6 shadow-sm flex-shrink-0">
+        <div className="w-full xl:w-64 gw-card p-5 flex flex-col gap-6 shadow-sm flex-shrink-0">
           <div>
-            <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Solar Nodes</h3>
+            <h3 className="gw-label mb-4">Solar Nodes</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <div className="w-4 h-4 rounded-full border-2 border-slate-900 bg-emerald-400 shadow-sm"></div>
@@ -43,7 +43,7 @@ export default function GridMapPage() {
           </div>
 
           <div className="border-t border-slate-800 pt-6">
-            <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Batteries</h3>
+            <h3 className="gw-label mb-4">Batteries</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <div className="w-4 h-4 rounded border-2 border-slate-900 bg-slate-400 shadow-sm"></div>

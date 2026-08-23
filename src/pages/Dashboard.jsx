@@ -2,6 +2,7 @@ import StatCard from '../components/dashboard/StatCard';
 import GridStatus from '../components/dashboard/GridStatus';
 import PowerChart from '../components/dashboard/PowerChart';
 import EventList from '../components/dashboard/EventList';
+import SimulationControl from '../components/dashboard/SimulationControl';
 import { Sun, Battery, Zap, Activity } from 'lucide-react';
 import { useGrid } from '../context/GridContext';
 import Loading from '../components/common/Loading';
@@ -27,7 +28,7 @@ export default function Dashboard() {
   const balance = gridSummary?.balance || (generation - demand);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold text-slate-100 tracking-tight">Dashboard</h1>
       </div>
@@ -77,7 +78,7 @@ export default function Dashboard() {
       </div>
 
       {/* Main Grid Status and Layout */}
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
         <div className="xl:col-span-1">
           <GridStatus 
             status={status} 
@@ -92,12 +93,12 @@ export default function Dashboard() {
       </div>
 
       {/* Lower Components */}
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
         <div className="xl:col-span-2">
           <EventList />
         </div>
-        <div className="border border-slate-800 border-dashed rounded-xl p-6 h-64 flex items-center justify-center text-slate-500 bg-slate-900/20">
-          Simulation Control Placeholder
+        <div className="xl:col-span-1">
+          <SimulationControl />
         </div>
       </div>
     </div>

@@ -50,14 +50,14 @@ export default function Batteries() {
       </div>
       
       {batteries.length === 0 ? (
-        <div className="p-8 border border-slate-800 border-dashed rounded-xl flex items-center justify-center text-slate-500">
+        <div className="p-8 border border-white/[0.06] border-dashed rounded-xl flex items-center justify-center text-slate-500">
           No batteries available.
         </div>
       ) : (
-        <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-sm">
+        <div className="gw-card p-5 overflow-hidden shadow-sm">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm whitespace-nowrap">
-              <thead className="bg-slate-950/50 border-b border-slate-800 text-slate-400 uppercase tracking-wider text-xs font-semibold">
+              <thead className="gw-label bg-transparent border-b border-white/[0.04]">
                 <tr>
                   <th className="px-6 py-4">Battery ID</th>
                   <th className="px-6 py-4">State</th>
@@ -67,9 +67,9 @@ export default function Batteries() {
                   <th className="px-6 py-4 text-right">Last Updated</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-white/[0.04]">
                 {batteries.map((bat) => (
-                  <tr key={bat.id || bat.batteryId} className="hover:bg-slate-800/30 transition-colors">
+                  <tr key={bat.id || bat.batteryId} className="hover:bg-white/[0.02] transition-colors">
                     <td className="px-6 py-4 font-medium text-slate-200">{bat.id || bat.batteryId}</td>
                     <td className="px-6 py-4">{getStateDisplay(bat.state)}</td>
                     <td className="px-6 py-4">{getChargeBar(bat.charge, bat.state)}</td>

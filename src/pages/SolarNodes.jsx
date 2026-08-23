@@ -32,14 +32,14 @@ export default function SolarNodes() {
       </div>
       
       {nodes.length === 0 ? (
-        <div className="p-8 border border-slate-800 border-dashed rounded-xl flex items-center justify-center text-slate-500">
+        <div className="p-8 border border-white/[0.06] border-dashed rounded-xl flex items-center justify-center text-slate-500">
           No solar nodes available.
         </div>
       ) : (
-        <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-sm">
+        <div className="gw-card p-5 overflow-hidden shadow-sm">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm whitespace-nowrap">
-              <thead className="bg-slate-950/50 border-b border-slate-800 text-slate-400 uppercase tracking-wider text-xs font-semibold">
+              <thead className="gw-label bg-transparent border-b border-white/[0.04]">
                 <tr>
                   <th className="px-6 py-4">Node ID</th>
                   <th className="px-6 py-4">Status</th>
@@ -49,9 +49,9 @@ export default function SolarNodes() {
                   <th className="px-6 py-4 text-right">Last Updated</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-white/[0.04]">
                 {nodes.map((node) => (
-                  <tr key={node.id || node.nodeId} className="hover:bg-slate-800/30 transition-colors">
+                  <tr key={node.id || node.nodeId} className="hover:bg-white/[0.02] transition-colors">
                     <td className="px-6 py-4 font-medium text-slate-200">{node.id || node.nodeId}</td>
                     <td className="px-6 py-4">{getStatusDisplay(node.status)}</td>
                     <td className="px-6 py-4 text-right text-slate-300 font-mono">{(node.powerOutput || node.power || 0).toFixed(1)} kW</td>
