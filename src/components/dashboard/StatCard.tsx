@@ -15,6 +15,7 @@ interface StatCardProps {
 
 const colorMap = {
   emerald: 'text-emerald-400',
+  cyan: 'text-cyan-400',
   amber: 'text-amber-400',
   rose: 'text-rose-400',
   slate: 'text-slate-400',

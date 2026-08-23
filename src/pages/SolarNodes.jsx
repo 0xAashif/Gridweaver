@@ -12,7 +12,7 @@ export default function SolarNodes() {
   const getStatusDisplay = (status) => {
     switch (status) {
       case 'ACTIVE':
-        return <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-emerald-400" /><span className="text-emerald-400 font-medium">ACTIVE</span></div>;
+        return <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-cyan-400" /><span className="text-cyan-400 font-medium">ACTIVE</span></div>;
       case 'WARNING':
         return <div className="flex items-center gap-2"><AlertTriangle className="w-4 h-4 text-amber-400" /><span className="text-amber-400 font-medium">WARNING</span></div>;
       case 'FAULT':
@@ -26,7 +26,7 @@ export default function SolarNodes() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold text-slate-100 flex items-center gap-2">
-          <Sun className="w-6 h-6 text-emerald-400" />
+          <Sun className="w-6 h-6 text-cyan-400" />
           Solar Nodes
         </h1>
       </div>

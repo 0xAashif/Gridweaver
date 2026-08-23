@@ -40,7 +40,7 @@ export default function Dashboard() {
           mainValue={nodes.length} 
           icon={Sun}
           items={[
-            { label: 'Active', value: activeNodes, statusColor: 'emerald' },
+            { label: 'Active', value: activeNodes, statusColor: 'cyan' },
             { label: 'Warning', value: warningNodes, statusColor: 'amber' },
             { label: 'Fault', value: faultNodes, statusColor: 'slate' },
           ]}
@@ -60,7 +60,7 @@ export default function Dashboard() {
           mainValue={`${generation} kW`} 
           icon={Zap}
           items={[
-            { label: 'Trend', value: '+5.2%', statusColor: 'emerald' },
+            { label: 'Trend', value: '+5.2%', statusColor: 'cyan' },
             { label: 'Capacity', value: '85%' },
             { label: 'Peak (Today)', value: '450 kW' },
           ]}
@@ -70,7 +70,7 @@ export default function Dashboard() {
           mainValue={`${demand} kW`} 
           icon={Activity}
           items={[
-            { label: 'Trend', value: '-1.4%', statusColor: 'emerald' },
+            { label: 'Trend', value: '-1.4%', statusColor: 'cyan' },
             { label: 'Load Level', value: 'Normal' },
             { label: 'Peak (Today)', value: '395 kW' },
           ]}

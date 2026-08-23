@@ -4,7 +4,7 @@ import L from 'leaflet';
 export default function SolarMarker({ node }) {
   const getStatusColor = (status) => {
     switch(status) {
-      case 'ACTIVE': return 'bg-emerald-400';
+      case 'ACTIVE': return 'bg-cyan-400';
       case 'WARNING': return 'bg-amber-400';
       case 'FAULT': return 'bg-rose-500';
       default: return 'bg-slate-400';
@@ -31,7 +31,7 @@ export default function SolarMarker({ node }) {
         <div className="p-1 min-w-[140px]">
           <h4 className="font-bold text-slate-100 border-b border-slate-700 pb-1 mb-2">{node.id}</h4>
           <div className="space-y-1 text-sm">
-            <p><span className="text-slate-400">Status:</span> <span className={node.status === 'ACTIVE' ? 'text-emerald-400' : 'text-amber-400'}>{node.status}</span></p>
+            <p><span className="text-slate-400">Status:</span> <span className={node.status === 'ACTIVE' ? 'text-cyan-400' : 'text-amber-400'}>{node.status}</span></p>
             <p><span className="text-slate-400">Power:</span> <span className="text-slate-200">{node.power} kW</span></p>
             <p><span className="text-slate-400">Voltage:</span> <span className="text-slate-200">{node.voltage} V</span></p>
             <p><span className="text-slate-400">Temp:</span> <span className="text-slate-200">{node.temperature || 38.2}°C</span></p>

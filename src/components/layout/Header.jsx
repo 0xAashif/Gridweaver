@@ -22,8 +22,8 @@ export default function Header() {
       <h2 className="text-lg font-semibold text-slate-100">{title}</h2>
       
       <div className="flex items-center gap-3">
-        <div className={`flex items-center gap-2 px-3 py-1 bg-slate-800 rounded-full border ${isLive ? 'border-emerald-500/30' : 'border-rose-500/30'}`}>
-          <div className={`w-2 h-2 rounded-full ${isLive ? 'bg-emerald-500 animate-pulse' : 'bg-rose-500'}`}></div>
+        <div className={`flex items-center gap-2 px-3 py-1 bg-slate-800 rounded-full border ${isLive ? 'border-cyan-500/30' : 'border-rose-500/30'}`}>
+          <div className={`w-2 h-2 rounded-full ${isLive ? 'bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.8)]' : 'bg-rose-500'}`}></div>
           <span className="text-xs font-medium text-slate-300 uppercase tracking-wider">{connectionStatus}</span>
         </div>
       </div>

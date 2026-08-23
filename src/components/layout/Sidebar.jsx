@@ -15,7 +15,7 @@ export default function Sidebar() {
     <div className="w-64 bg-black/30 border-r border-white/[0.04] flex flex-col h-full flex-shrink-0">
       <div className="h-16 flex items-center px-6 border-b border-slate-800">
         <h1 className="text-xl font-bold text-slate-100 flex items-center gap-2">
-          <Activity className="w-6 h-6 text-blue-500" />
+          <Activity className="w-6 h-6 text-cyan-400" />
           GridWeaver
         </h1>
       </div>
@@ -27,7 +27,7 @@ export default function Sidebar() {
             className={({ isActive }) =>
               `flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                 isActive
-                  ? 'bg-slate-800 text-blue-400'
+                  ? 'bg-cyan-500/10 text-cyan-400 border-r-2 border-cyan-400 shadow-[inset_-4px_0_15px_rgba(34,211,238,0.1)]'
                   : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'
               }`
             }

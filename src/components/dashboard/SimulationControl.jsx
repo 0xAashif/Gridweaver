@@ -31,7 +31,7 @@ export default function SimulationControl() {
         <button 
           onClick={() => handleAction(simulationService.startSimulation)}
           disabled={actionLoading}
-          className="flex-1 flex justify-center items-center gap-2 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 disabled:opacity-50 text-white font-medium rounded-lg transition-colors shadow-sm text-sm"
+          className="flex-1 flex justify-center items-center gap-2 px-4 py-2 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-400 text-cyan-400 font-medium rounded-lg transition-colors shadow-[0_0_10px_rgba(34,211,238,0.3)] disabled:opacity-50 text-sm"
         >
           <Play className="w-4 h-4" />
           START
@@ -39,7 +39,7 @@ export default function SimulationControl() {
         <button 
           onClick={() => handleAction(simulationService.triggerStorm)}
           disabled={actionLoading}
-          className="flex-1 flex justify-center items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-white font-medium rounded-lg transition-colors shadow-sm text-sm"
+          className="flex-1 flex justify-center items-center gap-2 px-4 py-2 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-400 text-cyan-400 font-medium rounded-lg transition-colors shadow-[0_0_10px_rgba(34,211,238,0.3)] disabled:opacity-50 text-sm"
         >
           <CloudLightning className="w-4 h-4" />
           STORM
